@@ -1,0 +1,47 @@
+managed implementation in class ZZCIBP_R_CIT_ORD_22EC301301 unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZZCIR_CIT_ORD_22EC301301 alias ZzcirCitOrd22ec301301
+persistent table ZCIT_ORD_22EC301
+extensible
+draft table ZZCICT_ORD_D301
+etag master LastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( mandatory : create )
+   OrderID;
+
+  field ( readonly )
+   CreatedBy,
+   CreatedAt,
+   LastChangedBy,
+   LastChangedAt;
+
+  field ( readonly : update )
+   OrderID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZCIT_ORD_22EC301 corresponding extensible
+  {
+    OrderID = ORDER_ID;
+    CreatedBy = CREATED_BY;
+    CreatedAt = CREATED_AT;
+    LastChangedBy = LAST_CHANGED_BY;
+    LastChangedAt = LAST_CHANGED_AT;
+    Status = STATUS;
+    Description = DESCRIPTION;
+  }
+
+}

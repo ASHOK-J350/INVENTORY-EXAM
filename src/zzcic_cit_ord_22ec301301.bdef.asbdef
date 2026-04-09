@@ -1,0 +1,20 @@
+projection implementation in class ZZCIBP_C_CIT_ORD_22EC301301 unique;
+strict ( 2 );
+extensible;
+use draft;
+use side effects;
+define behavior for ZZCIC_CIT_ORD_22EC301301 alias ZzcicCitOrd22ec301301
+extensible
+use etag
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+}
